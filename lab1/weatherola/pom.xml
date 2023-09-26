@@ -15,7 +15,6 @@
           <comments>A business-friendly OSS license</comments>
       </license>
   </licenses>
-
   <organization>
       <name>Sonatype</name>
       <url>http://www.sonatype.com</url>
@@ -51,12 +50,12 @@
     <dependency>
       <groupId>com.squareup.retrofit2</groupId>
       <artifactId>retrofit</artifactId>
-      <version>(insert latest version)</version>
+      <version>2.9.0</version>
     </dependency>
     <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.11.0</version>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>converter-gson</artifactId>
+      <version>2.9.0</version>
     </dependency>
   </dependencies>
 </project>
