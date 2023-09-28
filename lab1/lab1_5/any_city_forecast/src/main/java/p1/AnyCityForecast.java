@@ -1,41 +1,38 @@
 package p1;
 
-import java.awt.Toolkit; 
-import java.util.Timer; 
-import java.util.TimerTask; 
+import p2.City;
+import p2.CityForecast;
+import p2.WeatherStarter;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger; 
 
 public class AnyCityForecast {
-    Toolkit toolkit;// j av a2 s . c o m
 
-    Timer timer;
-
-    public AnyCityForecast() {
-        toolkit = Toolkit.getDefaultToolkit();
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new RemindTask(), 0, // initial delay
-                1 * 1000); // subsequent rate
-    }
-
-    class RemindTask extends TimerTask {
-        int numWarningBeeps = 3;
-
-        public void run() {
-            if (numWarningBeeps-- > 0) {
-                long time = System.currentTimeMillis();
-                if (time - scheduledExecutionTime() > 5) {
-                    return;
-                }
-                toolkit.beep();
-                System.out.println("Beep!");
-            } else {
-                toolkit.beep();
-                System.out.println("Time's up!");
-                System.exit(0);
-            }
-        }
-    }
-
+    private static Logger logger = LogManager.getLogger(AnyCityForecast.class);
+  
     public static void main(String args[]) {
-        new AnyCityForecast();
+
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        Runnable task = () -> {
+            City randomCity = WeatherStarter.getRandomCity();
+
+            // Make a request to IpmaApiClient to get the forecast for the random city.
+            CityForecast forecast = WeatherStarter.getForecast(randomCity.getGlobalIdLocal());
+
+            
+            // Log the forecast result.
+            logger.info("Weather forecast for " + randomCity.getLocal() + ": between " + forecast.getTMin() + "ºC and " + forecast.getTMax() + "ºC.");
+
+            // logger.debug("Debug log message");
+            // logger.info("Info log message");
+            // logger.error("Error log message");       
+        };
+        scheduler.scheduleAtFixedRate(task, 0, 20, TimeUnit.SECONDS);
+
     }
 }
