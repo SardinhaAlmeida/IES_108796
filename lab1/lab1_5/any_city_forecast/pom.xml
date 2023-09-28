@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>p1</groupId>
+  <artifactId>any_city_forecast</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>weatherola</name>
+  <url>http://maven.apache.org</url>
+  <licenses>
+      <license>
+          <name>Apache 2</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>repo</distribution>
+          <comments>A business-friendly OSS license</comments>
+      </license>
+  </licenses>
+  <organization>
+      <name>Sonatype</name>
+      <url>http://www.sonatype.com</url>
+  </organization>
+
+  <developers>
+      <developer>
+          <id>sara</id>
+          <name>Sara Almeida</name>
+          <email>sarafalmeida@ua.pt</email>
+          <url>http://www.ua.pt</url>
+          <organization>Universidade de Aveiro</organization>
+          <organizationUrl>http://www.ua.pt</organizationUrl>
+          <roles>
+              <role>developer</role>
+          </roles>
+          <timezone>-6</timezone>
+      </developer>
+  </developers>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties> 
+  
+  <dependencies>
+    <dependency>
+      <groupId>p2</groupId>
+      <artifactId>ipma_api_client</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.2</version> <!-- This version number -->
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>com.baeldung.HelloWorld</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+        <!-- Other plugins -->
+    </plugins>
+  </build>
+
+
+  <!-- <plugin>
+   <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+     <version>17</version>             
+      <configuration>
+          <archive>
+             <manifest>
+              <mainClass>com.baeldung.HelloWorld</mainClass>
+              </manifest>
+           </archive>
+       </configuration>
+  </plugin> -->
+
+
+</project>
