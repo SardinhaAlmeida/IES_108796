@@ -42,7 +42,7 @@ public class EmbeddedJettyExample {
             else 
             {
             response.getWriter().println("<h1>New Hello Simple Servlet</h1>"); 
-               } 
+            } 
         }
     }
  }

@@ -17,36 +17,18 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/html");
 
         response.setStatus(HttpServletResponse.SC_OK);
-
-        PrintWriter out = response.getWriter();
    
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-         
-        try {
-          // Write some content
-          out.println("<html>");
-          out.println("<head>");
-          out.println("<title>LoginServlet</title>");
-          out.println("</head>");
-          out.println("<body>");
+        message = request.getParameter("msg");
        
-          if(username!=null && password!=null) {
-            out.println("<h2>Welcome Friend</h2>");
-          }else{
-            out.println("<h2>Validate your self again.</h2>");
-          }
-           
-          out.println("</body>");
-          out.println("</html>");
-        } finally {
-          out.close();
-        }
-    //     // Hello
-    //     PrintWriter out = response.getWriter();
-    //     out.println("<html><body>");
-    //     out.println("<h1>" + message + "</h1>");
-    //     out.println("</body></html>");
+        if (message != null) 
+        {
+            response.getWriter().println("<h1>" + message + "</h1>");
+        } 
+        else 
+        {
+            response.getWriter().println("<h1>Hi!</h1>"); 
+        } 
+          
     }
 
     public void destroy() {
