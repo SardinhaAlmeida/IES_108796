@@ -24,7 +24,7 @@ public class MoviesController {
 	}	
 
 	@GetMapping("api/quote")
-	public Quotes quote(@RequestParam(value = "show", required = false) String show_id) {
+	public Quotes quote() {
 		Random rand = new Random();
 		int random_id = rand.nextInt(id_show.size());
 		List<String> quotes = id_show.get(random_id).getQuotes();
@@ -32,8 +32,20 @@ public class MoviesController {
 		return new Quotes(quotes.get(random_quote));
 	}
 
+
+	@GetMapping("api/shows")
+	public List<Shows> show(){
+		List<Shows> showList = new ArrayList<>();
+
+		for (Integer id : id_show.keySet()) {
+			showList.add(new Shows(id, id_show.get(id).getShow_name()));
+		}
+
+		return showList;
+	}
+
 	@GetMapping("api/quotes")
-	public Quote_Show quotes(@RequestParam(value = "show", required = false) String show_id) {
+	public Quote_Show quotes(@RequestParam(value = "show") String show_id) {
 
 		List<String> quotes = new ArrayList<>();
 
@@ -45,16 +57,5 @@ public class MoviesController {
 			return new Quote_Show(id_show.get(id).getShow_name(), quotes);
 		}
 		return new Quote_Show("none",Arrays.asList("Show id not found"));
-	}
-
-	@GetMapping("api/shows")
-	public List<Shows> show(){
-		List<Shows> showList = new ArrayList<>();
-
-		for (Integer id : id_show.keySet()) {
-			showList.add(new Shows(id, id_show.get(id).getShow_name()));
-		}
-
-		return showList;
 	}
 }
