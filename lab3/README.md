@@ -45,4 +45,5 @@ $ sudo docker run --name mysql5 -e MYSQL_ROOT_PASSWORD=secret1 -e MYSQL_DATABASE
 * Para testar os métodos da REST API, utilizei a extensão do VS Code *Thunder Client*:
 
     -Exemplo de Insert:
-        -![POST](prints/Screenshot from 2023-11-02 18-23-54.png)
+    
+    ![POST](prints/Screenshot from 2023-11-02 18-23-54.png)
