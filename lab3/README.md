@@ -45,5 +45,26 @@ $ sudo docker run --name mysql5 -e MYSQL_ROOT_PASSWORD=secret1 -e MYSQL_DATABASE
 * Para testar os métodos da REST API, utilizei a extensão do VS Code *Thunder Client*:
 
     -Exemplo de Insert:
+        ![POST](prints/post.png)
     
-    ![POST](prints/Screenshot from 2023-11-02 18-23-54.png)
+    -Exemplo de Get:
+        ![GET](prints/get1.png)
+
+    -Exemplo de Update:
+        ![PUT](prints/put.png)
+    
+    -Exemplo de Delete:
+        ![DELETE](prints/delete.png)
+
+    -Exemplo de Get com emal:
+        ![GET](prints/get_email.png)
+
+## lab3_3
+### alínea (a) -> (c)
+Neste exercício tomei por base tudo o que foi feito no anterior, no entanto, com algumas alterações coerentes com o problema: como termos dois campos, neste caso, Movie e Quote que requerem cada um um repository, um service, etc.
+
+-Quanto ao controler, em relação ao exercício anterior, alterei os endpoints para retornarem os dados pretendidos, que estão neste caso relacionados com o exercício semelhante do guião anterior e incluem mátodos como por exemplo *getQuotesByMovie()* ou *getMovieById()*
+
+### alínea (d)
+* Foram adicionados os ficheiros *Dockerfile*, *.env* e *compose.yml*. Ao correr o comando *docker-compose up* é possível verificar que os containers estão a correr e que a aplicação está a funcionar corretamente.
+
